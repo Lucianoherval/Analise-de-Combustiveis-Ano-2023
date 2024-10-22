@@ -63,24 +63,3 @@ with col5:
     st.write(preco_combust_estado)
     print(preco_combust_estado)
 
-
-# st.sidebar.markdown(
-#     """
-#     <style>
-#     .footer {
-#         position: fixed;
-#         left: 0;
-#         bottom: 0;
-#         width: 100%;
-#         background-color: white;
-#         color: black;
-#         text-align: center;
-#         padding: 10px;
-#     }
-#     </style>
-#     <div class="footer">
-#         <p>Análise realizada por Luciano Herval S. L. Filho, estudante de ciência de dados, com interesse em entender as tendências de consumo e os impactos econômicos dos combustíveis em 2023.</p>
-#     </div>
-#     """,
-#     unsafe_allow_html=True
-# )
