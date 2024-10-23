@@ -70,3 +70,6 @@ with col5:
     st.write(preco_combust_estado)
     print(preco_combust_estado)
 
+def nada():
+    pass
+
