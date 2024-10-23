@@ -3,6 +3,7 @@
 import pandas as pd
 import streamlit as st
 from datetime import datetime
+import plotly.express as px
 
 #CONFIGURAÇÃO DA PAGINA
 st.set_page_config(page_title='Analise_Combustivel\Preços Anual 2023', page_icon=':oil_drum:', initial_sidebar_state='auto', layout='wide')
@@ -22,8 +23,6 @@ dados['Data da Coleta'] = pd.to_datetime(dados['Data da Coleta'], format='%d/%m/
 dados.isna().sum()
 dados.fillna(0)
 
-print(dados.info())
-
 st.title('_Analise de Combustíve de_ :green[2023]')
 st.subheader('**Uma visão detalhada sobre as variações de preços e consumo de combustíveis ao longo do ano de 2023**')
 st.header('', divider='rainbow')
@@ -31,6 +30,9 @@ st.header('', divider='rainbow')
 col1, col2 = st.columns(2)
 col3 = st.columns(1)[0]
 col4, col5 = st.columns(2)
+
+tipo_combus = dados['Produto'].unique()
+selecao_combust = st.sidebar.selectbox('Selecione o Combustível', tipo_combus)
 
 
 menor_preco = dados.loc[dados['Valor de Venda'].idxmin()]
@@ -46,11 +48,16 @@ with col2:
     
 with col3:
     st.write('Grafico')
+    dados['MES'] = dados['Data da Coleta'].apply(lambda x: str(x.year) + '-' + str(x.month))
+    filtro = dados[dados['Produto'] == selecao_combust].groupby('Estado - Sigla')['Valor de Venda'].mean().reset_index()
+
+    # Criar o gráfico
+    fig = px.bar(filtro, x='Estado - Sigla', y='Valor de Venda', title="Gráfico de Preços por Estado")
+    st.plotly_chart(fig)
     
 with col4:
     st.subheader('Média de Preço por Municipio e Tipo de Combustível')
-    tipo_combus = dados['Produto'].unique()
-    selecao_combust = st.sidebar.selectbox('Selecione o Combustível', tipo_combus)
+
     preco_combust_selecionado = dados[dados['Produto'] == selecao_combust].groupby(['Municipio','Estado - Sigla'])['Valor de Venda'].mean().reset_index()
     preco_combust_selecionado = preco_combust_selecionado.sort_values(by='Valor de Venda', ascending=False)
     st.write(preco_combust_selecionado)
