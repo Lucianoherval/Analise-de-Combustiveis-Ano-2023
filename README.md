@@ -1,7 +1,7 @@
 
 # Análise de Combustíveis - Preços Anuais 2023
 
-Este projeto visa fornecer uma visão detalhada das variações de preços de combustíveis ao longo do ano de 2023 no Brasil, utilizando dados fornecidos pela Agência Nacional do Petróleo (ANP). A aplicação foi desenvolvida com Streamlit para visualizações interativas e análises exploratórias.
+Este projeto fornece uma visão detalhada das variações de preços de combustíveis ao longo do ano de 2023 no Brasil, utilizando dados fornecidos pela Agência Nacional do Petróleo (ANP). A análise foi realizada em um arquivo CSV de grande escala, contendo mais de 90.000 linhas de dados, o que permite uma visão robusta e abrangente sobre os preços de combustíveis em diferentes municípios e estados do Brasil.
 
 ### Dados
 Os dados utilizados são provenientes do repositório de dados abertos da ANP:
