@@ -6,8 +6,13 @@ from datetime import datetime
 import plotly.express as px
 
 #CONFIGURAÇÃO DA PAGINA
-st.set_page_config(page_title='Analise_Combustivel\Preços Anual 2023', page_icon=':oil_drum:', initial_sidebar_state='auto', layout='wide')
+st.set_page_config(page_title='Analise_Combustivel\Preços Anual 2023', page_icon=':fire:', initial_sidebar_state='auto', layout='wide')
 st.sidebar.title(':oil_drum:_Painel de Controle_')
+
+# TÍTULO E IMAGEM DE CAPA
+imagems = 'D:\Área de Trabalho\Meus Projetos Python\streamlit\Analise_Combustivel - Copia\istockphoto-1136053255-2048x2048.jpg'
+st.title(':fire: _Análise Exclusiva: Preços de Combustíveis em_ :green[2023]')
+st.image(imagems, caption='Preços de Combustíveis')
 
 #LEITURA DOS DADOS DE FORMA CORRETA
 dados_base1 = pd.read_csv(r'D:\Área de Trabalho\Meus Projetos Python\streamlit\Analise_Combustivel\Preços semestrais - AUTOMOTIVOS_2023.01.csv', sep=';', decimal=',')
@@ -23,7 +28,7 @@ dados['Data da Coleta'] = pd.to_datetime(dados['Data da Coleta'], format='%d/%m/
 dados.isna().sum()
 dados.fillna(0)
 
-st.title('_Analise de Combustíve de_ :green[2023]')
+#st.title('_Analise de Combustíve de_ :green[2023]')
 st.subheader('**Uma visão detalhada sobre as variações de preços e consumo de combustíveis ao longo do ano de 2023**')
 st.header('', divider='rainbow')
 
