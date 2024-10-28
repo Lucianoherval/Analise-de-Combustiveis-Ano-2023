@@ -20,6 +20,9 @@ Para rodar este projeto, você precisará ter o Python 3.x instalado. As bibliot
 - pandas para manipulação de dados
 - para a construção da interface web
 
+![image](https://github.com/user-attachments/assets/4306fd3d-46af-4bb6-bcf0-67ba213f0df7)
+
+
 ## Autor
 Este projeto foi desenvolvido por Luciano Herval S. L. Filho, estudante de ciência de dados interessado em entender as tendências de consumo e os impactos econômicos dos combustíveis em 2023.
 
